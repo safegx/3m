@@ -49,18 +49,24 @@
   }
 
   #sun{
-    position: relative;
-    left: 50%;
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 40% 35%, #fff6df, var(--amber) 55%, var(--sunset) 100%);
-    box-shadow: 0 0 90px 20px rgba(247,169,76,0.55);
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    top: 22vh;
-    pointer-events: none;
-  }
+  position: fixed;
+  left: 50%;
+  top: 18vh;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 40% 35%,
+    #fff6df,
+    var(--amber) 55%,
+    var(--sunset) 100%
+  );
+  box-shadow: 0 0 90px 20px rgba(247,169,76,0.55);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+  transition: top 0.05s linear, opacity 0.1s linear;
+}
 
   .star{
     position: fixed;
