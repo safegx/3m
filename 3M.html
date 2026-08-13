@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Happy 3 Months, mon coeur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,600&family=Outfit:wght@300;400;500;600&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --twilight:   #241429;
+    --dusk-rose:  #7a3556;
+    --sunset:     #e2632e;
+    --amber:      #f7a94c;
+    --cream:      #fff3e0;
+    --ember:      #ff8b5e;
+    --vh: 1vh;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{
+    scroll-behavior: smooth;
+  }
+
+  body{
+  font-family:'Outfit', sans-serif;
+  color: var(--cream);
+  background: var(--twilight);
+  overflow-x: hidden;
+  scroll-snap-type: y proximity;
+}
+
+
+  #sky{
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient(to bottom,
+      var(--twilight) 0%,
+      var(--dusk-rose) 32%,
+      var(--sunset) 55%,
+      var(--amber) 68%,
+      var(--dusk-rose) 85%,
+      var(--twilight) 100%);
+    transition: background 0.05s linear;
+  }
+
+  #sun{
+    position: fixed;
+    left: 50%;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #fff6df, var(--amber) 55%, var(--sunset) 100%);
+    box-shadow: 0 0 90px 20px rgba(247,169,76,0.55);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    top: 22vh;
+    pointer-events: none;
+  }
+
+  .star{
+    position: fixed;
+    z-index: -1;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: var(--cream);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @keyframes twinkle{
+    0%, 100% { opacity: var(--min-op, 0.15); }
+    50% { opacity: var(--max-op, 0.9); }
+  }
+
+  /* ---------- HERO ---------- */
+  section#hero{
+    position: relative;
+    height: 100vh;
+    height: 100svh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8vh 6vw 14vh;
+  }
+
+  .hero-inner{
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    align-items: center;
+  }
+
+  .eyebrow{
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    color: var(--ember);
+    letter-spacing: 0.04em;
+  }
+
+  h1.title{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 7vw, 4.4rem);
+    line-height: 1.08;
+    color: var(--cream);
+    text-shadow: 0 0 40px rgba(247,169,76,0.35);
+  }
+
+  .hero-text{
+    font-weight: 300;
+    font-size: clamp(1.02rem, 2.1vw, 1.25rem);
+    line-height: 1.7;
+    color: #ffffff;
+  }
+
+  .hero-close{
+    margin-top: 0.4rem;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+    color: var(--cream);
+  }
+
+  .scroll-cue{
+    position: absolute;
+    bottom: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.25rem;
+    color: rgba(255,243,224,0.85);
+  }
+
+  .chevron{
+    font-size: 1.3rem;
+    animation: bounce 1.8s ease-in-out infinite;
+    color: var(--ember);
+  }
+
+  @keyframes bounce{
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(8px); opacity: 1; }
+  }
+
+  /* ---------- LETTER / LIST SECTION ---------- */
+  section#letter{
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  justify-content: center;
+  padding-top: 6vh;
+}
+
+  .letter-panel{
+    width: min(680px, 92vw);
+    background: rgba(36,20,41,0.62);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,243,224,0.12);
+    border-radius: 28px 28px 0 0;
+    padding: 3.2rem 2.2rem 5rem;
+    box-shadow: 0 -20px 60px rgba(0,0,0,0.25);
+  }
+
+  .letter-header{
+    text-align: center;
+    margin-bottom: 2.6rem;
+  }
+
+  .letter-eyebrow{
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    color: var(--ember);
+  }
+
+  h2.letter-title{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+    margin-top: 0.3rem;
+    color: var(--cream);
+  }
+
+  .letter-sub{
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255,243,224,0.7);
+  }
+
+  ol.love-list{
+    list-style: none;
+    counter-reset: item;
+    display: flex;
+    flex-direction: column;
+  }
+
+  ol.love-list li{
+  counter-increment: item;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(255,243,224,0.09);
+
+  opacity: 0;
+  transform: translateY(15px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+ 
+ol.love-list li.in-view{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  ol.love-list li::before{
+    content: counter(item, decimal-leading-zero);
+    flex-shrink: 0;
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--ember);
+    min-width: 2ch;
+  }
+
+  ol.love-list li span{
+    font-weight: 300;
+    font-size: clamp(0.98rem, 2vw, 1.08rem);
+    line-height: 1.5;
+    color: rgba(255,243,224,0.95);
+  }
+
+  .letter-footer{
+    margin-top: 3.2rem;
+    text-align: center;
+  }
+
+  .letter-footer .line1{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    color: var(--amber);
+  }
+
+  .letter-footer .line2{
+    margin-top: 0.5rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: rgba(255,243,224,0.75);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    .chevron{ animation: none; }
+    .star{ animation: none !important; opacity: 0.4; }
+    ol.love-list li{ transition: none; opacity: 1; transform: none; }
+  }
+
+  @media (max-width: 480px){
+    .letter-panel{ padding: 2.4rem 1.4rem 4rem; }
+    #sun{ width: 160px; height: 160px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="sky"></div>
+<div id="sun"></div>
+<div id="stars"></div>
+
+<section id="hero">
+  <div class="hero-inner">
+    <h1 class="title">Happy 3 months together,<br>Mon cœur</h1>
+    <p class="hero-text">
+      Every day by your side makes me happier than I knew I could be.
+      I want many more months, even years, with you.
+    </p>
+    <p class="hero-close">And that's why I made you this surprise.</p>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll to see the next page :)</span>
+    <span class="chevron">⌄</span>
+  </div>
+</section>
+
+<section id="letter">
+  <div class="letter-panel">
+    <div class="letter-header">
+      <p class="letter-eyebrow">all this and more</p>
+      <h2 class="letter-title">100 things I love about you</h2>
+      <p class="letter-sub">in no particular order, because I love them all equally</p>
+    </div>
+    <ol class="love-list" id="love-list"></ol>
+    <div class="letter-footer">
+      <p class="line1">And this is only the beginning.</p>
+      <p class="line2">Happy 3 months, mon coeur. I love you. ✦</p>
+    </div>
+  </div>
+</section>
+
+<footer style="text-align:center; padding: 2.5rem 1rem; font-family:'Caveat', cursive; font-size:1.1rem; color: rgba(255,243,224,0.5);">
+  scroll to change page :)
+</footer>
+
+<script>
+  const items = [
+    "Your soul","Your eyes","Your smile","Your sense of humor","The way you support me",
+    "Your hugs","How you laugh at your own jokes before you finish telling them",
+    "Your patience with me","How well you know me","Your lips",
+    "How you make me feel safe whenever I need it","The way you see the world",
+    "How strong you are without even realizing it","Your thighs",
+    "How you make me feel when I hear your voice","Your curiosity about everything",
+    "Your cute face when I give you a compliment","The way you support me in everything",
+    "How you get excited over the little things","Your honesty",
+    "The way you look at me","Your creativity","How you talk about your dreams",
+    "The way you dance like nobody's watching","How hard you try",
+    "Your tenderness","How much you care about others","Your contagious laugh",
+    "How you run your fingers through my hair","Your intelligence","How you stand up for what you believe in",
+    "The way you tell stories","How well you know me without me saying a word",
+    "Your courage","How you make me a better person","The way you embrace life",
+    "How you get emotional watching a movie","Your generosity",
+    "How you take care of the details","The way you say my name",
+    "How comfortable you are being yourself","The way you truly listen",
+    "How you make me laugh even on hard days","Your consistency",
+    "The way you plan things out","Your spontaneity when I least expect it",
+    "How passionate you are about what you do","Your chest","Your hair",
+    "Your patience with the people you love","How you strive to get better every day",
+    "Your drawings","The way you sing","Your sensitivity",
+    "How you make me feel important","The way you embrace my quirks",
+    "How much you care about your family","The way you apologize when you're wrong",
+    "How you celebrate my wins as if they were yours","Your loyalty",
+    "How excited you get planning trips","Your good taste",
+    "How you make any place feel special",
+    "The way you look at me when I talk about my dreams","How well you understand me without words",
+    "The way you're simply you","How you trust me","Your determination",
+    "Your touch","The way you make everything more fun",
+    "How you hold me up in hard moments","Your kindness",
+    "How much you care about doing things right","The way you remember the important details",
+    "How effortlessly affectionate you are","The way you laugh until you cry",
+    "How you get moved by music","The way you make me feel at peace",
+    "How you're able to forgive and move forward","The way you look toward the future with hope",
+    "Your effort","How fair you are","How fully you commit to what you love",
+    "Your bravery","The way you care about my day","Your tenderness with kids",
+    "How you're my favorite person to talk to about anything","The way you make me feel safe",
+    "How much you value friendship","The way you overcome obstacles",
+    "How you light up any place you're in","The way you embrace your imperfections",
+    "The way you make me feel one of a kind","Your endless patience",
+    "How you can make me smile with just one message","The way you love without fear",
+    "The way you make me want to be better","How you are, simply, you",
+    "That you choose me every day"
+  ];
+
+  const list = document.getElementById('love-list');
+  const frag = document.createDocumentFragment();
+  items.forEach((text) => {
+    const li = document.createElement('li');
+    const span = document.createElement('span');
+    span.textContent = text;
+    li.appendChild(span);
+    frag.appendChild(li);
+  });
+  list.appendChild(frag);
+
+  // reveal items as they scroll into view
+  const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in-view');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.05,
+  rootMargin: '0px 0px -10% 0px'
+});
+
+  document.querySelectorAll('.love-list li').forEach(li => observer.observe(li));
+
+  // starfield
+  const starsContainer = document.getElementById('stars');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const starEls = [];
+  const STAR_COUNT = 50;
+  for (let i = 0; i < STAR_COUNT; i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    const topPct = 55 + Math.random() * 45; // stars live in the lower/darker part of the sky
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.top = topPct + 'vh';
+    const minOp = 0.1 + Math.random() * 0.15;
+    const maxOp = 0.5 + Math.random() * 0.5;
+    s.style.setProperty('--min-op', minOp);
+    s.style.setProperty('--max-op', maxOp);
+    if (!reduceMotion){
+      s.style.animation = `twinkle ${2 + Math.random() * 3}s ease-in-out ${Math.random() * 3}s infinite`;
+    }
+    starsContainer.appendChild(s);
+    starEls.push({ el: s, topPct });
+  }
+
+  // sun descends + sky shifts with scroll progress; stars fade in as sun sets
+  const sun = document.getElementById('sun');
+  let ticking = false;
+
+  function updateOnScroll(){
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - window.innerHeight;
+    const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+
+    // sun travels from ~18vh to ~78vh as the page is scrolled
+   const sunTop = 18 + progress * 60;
+sun.style.top = sunTop + 'svh';
+    sun.style.opacity = String(1 - progress * 0.55);
+
+    // stars fade in once we pass the midpoint (once the "sun" is low)
+    const starOpacity = Math.max(0, (progress - 0.35) / 0.65);
+    starEls.forEach(({ el }) => { el.style.filter = `opacity(${starOpacity})`; });
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking){
+      requestAnimationFrame(updateOnScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateOnScroll();
+</script>
+
+</body>
+</html>
