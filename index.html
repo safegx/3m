@@ -30,13 +30,14 @@
   background: var(--twilight);
   overflow-x: hidden;
   scroll-snap-type: y proximity;
+  position: relative;
 }
 
 
   #sky{
     position: fixed;
     inset: 0;
-    z-index: -2;
+    z-index: 0;
     background: linear-gradient(to bottom,
       var(--twilight) 0%,
       var(--dusk-rose) 32%,
@@ -48,7 +49,7 @@
   }
 
   #sun{
-    position: fixed;
+    position: relative;
     left: 50%;
     width: 240px;
     height: 240px;
@@ -56,14 +57,14 @@
     background: radial-gradient(circle at 40% 35%, #fff6df, var(--amber) 55%, var(--sunset) 100%);
     box-shadow: 0 0 90px 20px rgba(247,169,76,0.55);
     transform: translate(-50%, -50%);
-    z-index: -1;
+    z-index: 2;
     top: 22vh;
     pointer-events: none;
   }
 
   .star{
     position: fixed;
-    z-index: -1;
+    z-index: 1;
     width: 2px;
     height: 2px;
     border-radius: 50%;
@@ -426,7 +427,7 @@ ol.love-list li.in-view{
 
     // sun travels from ~18vh to ~78vh as the page is scrolled
    const sunTop = 18 + progress * 60;
-sun.style.top = sunTop + 'svh';
+sun.style.top = sunTop + 'vh';
     sun.style.opacity = String(1 - progress * 0.55);
 
     // stars fade in once we pass the midpoint (once the "sun" is low)
